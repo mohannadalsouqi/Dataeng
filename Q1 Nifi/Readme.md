@@ -6,6 +6,7 @@
 ## About project
 
 ![enter image description here](https://i.ibb.co/qpJXHC2/Screen-Shot-2021-05-18-at-6-29-38-PM.png)
+
 The goal of the project is to use nifi to build data pipline to transform data from CSV file to PostgreSQL table .
 in this 
 

@@ -1,4 +1,4 @@
-# CSV file to PostgreSQL using NIFI
+# CSV file to PostgreSQL then to MongoDB using airflow
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" width="300" alt="Apache Airflow"/>
 <img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB_Logo_FullColorBlack_RGB-4td3yuxzjs.png" width="300"  alt="Mongo DB"/>
@@ -37,7 +37,7 @@ The goal of the project is to use airflow to build data pipline to transform dat
 To build:
 - Execute `docker-compose.yml` using Docker build the containers with following Command `docker-compose up`. 
 
-To access nifi :
+To access airflow :
 - Access airflow Interface using this url [http://localhost:8080/](http://localhost:8080/)
 - Add **Q2.py** to **/opt/airflow/dags** on your local machine  
 - Enable the **Q2_mohannad_alsouqi** Dag 

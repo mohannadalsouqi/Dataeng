@@ -1,8 +1,9 @@
 # CSV file to PostgreSQL using NIFI
 
-<img src="https://cdn.iconscout.com/icon/free/png-256/postgresql-11-1175122.png" width="200" alt="Apache NiFi"/>
-<img src="https://nifi.apache.org/assets/images/apache-nifi-logo.svg" width="300" height="110" alt="Apache NiFi"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" width="300" alt="Apache Airflow"/>
 <img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB_Logo_FullColorBlack_RGB-4td3yuxzjs.png" width="300"  alt="Mongo DB"/>
+<img src="https://cdn.iconscout.com/icon/free/png-256/postgresql-11-1175122.png" width="200" alt="PostgreSQL"/>
+
 
 ## About project
 

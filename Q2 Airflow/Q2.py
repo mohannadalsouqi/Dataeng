@@ -29,6 +29,10 @@ with DAG(
 ) as dag:
 
     # [START howto_operator_python]
+    run0 = BashOperator(
+        task_id='importdata',
+        bash_command="pip install pymongo",
+    )
 
     def load_postgresql(**kwargs):
         host="de_postgres" # use, 172.26.0.2, "localhost" if you access from outside the localnet decompose env 
@@ -42,14 +46,30 @@ with DAG(
             tablename,
             con=engine
         )
+        import json
+        jsonfile=rdf.to_json(orient='records')
+        with open('data.json', 'w') as file:
+            json.dump(jsonfile, file)
         return 'Load PostgreSQL done'
 
     run1 = PythonOperator(
         task_id='load_postgresql',
         python_callable=load_postgresql,
     )
-    # [END howto_operator_python]
     def postgresqltojson(**kwargs):
+        from pymongo import MongoClient
+        import json
+
+        client = MongoClient("mongodb://mongopsql:mongo@de_mongo:27017")
+
+        db = client["Q2"]
+
+        Collection = db["client_list"]
+
+        with open('data.json') as file:
+            file_data = json.load(file)
+            listfile=json.loads(file_data)
+            Collection.insert_many(listfile)
 
         return 'Load postgresqltojson done'
 
@@ -57,15 +77,7 @@ with DAG(
         task_id='postgresqltojson',
         python_callable=postgresqltojson,
     )
-    def postgresqltojson1(**kwargs):
-
-        return 'Load postgresqltojson2 done'
-
-    run3 = PythonOperator(
-        task_id='postgresqltojson1',
-        python_callable=postgresqltojson1,
-    )
+    run0 >> run1 
     run1 >> run2
-    run2 >> run3
-    # [END howto_operator_python]
+
 
